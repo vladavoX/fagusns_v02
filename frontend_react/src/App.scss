@@ -1,0 +1,21 @@
+.app {
+  font-family: var(--font-base);
+  background: var(--primary-bg);
+  height: 100vh;
+}
+
+.app__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-text {
+  font-size: 0.8rem;
+  text-align: left;
+  line-height: 1.5;
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.75rem;
+  }
+}
