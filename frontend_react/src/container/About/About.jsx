@@ -6,10 +6,12 @@ import './About.scss';
 import { urlFor, client } from '../../client';
 
 const About = () => {
+  var lang = localStorage.getItem('lang');
+
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type == "abouts"]';
+    const query = `*[_type == "abouts" && language == "${lang}" ]`;
 
     client.fetch(query).then((data) => {
       setAbouts(data);
@@ -42,5 +44,5 @@ const About = () => {
 export default AppWrap(
   MotionWrap(About, 'app__about'),
   'about',
-  'app__primarybg'
+  'app__secondarybg'
 )

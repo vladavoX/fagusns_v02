@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { HiMenuAlt4, HiX } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
@@ -11,6 +11,22 @@ const Navbar = () => {
   const handleOnClick = (e) => {
     e.stopPropagation();
     setToggle((prevState) => !prevState);
+  }
+  
+  const handleLangSerbian = (e) => {
+    if (localStorage.getItem('lang') == 'sr') {
+      e.preventDefault();
+    } else {
+      localStorage.setItem('lang', 'sr');
+    }
+  }
+
+  const handleLangEnglish = (e) => {
+    if (localStorage.getItem('lang') == 'en') {
+      e.preventDefault();
+    } else {
+      localStorage.setItem('lang', 'en');
+    }
   }
 
   return (
@@ -27,11 +43,22 @@ const Navbar = () => {
 
       <ul className='app__navbar-links'>
         {['home', 'about', 'work', 'materials', 'contact'].map((item) => (
-          <li className='app__flex p-text' key={`link-${item}`}>
-            <div />
-            <a href={`#${item}`}>{item}</a>
-          </li>
+            <li className='app__flex p-text' key={`link-${item}`}>
+              <div />
+              <a href={`#${item}`}>{item}</a>
+            </li>
         ))}
+      </ul>
+      
+      <ul className='app__navbar-lang'>
+        <li className='app__flex p-text'>
+          <div />
+          <a href="" onClick={handleLangSerbian}>Srpski</a>
+        </li>
+        <li className='app__flex p-text'>
+          <div />
+          <a href="" onClick={handleLangEnglish}>English</a>
+        </li>
       </ul>
 
       <div className='app__navbar-menu'>

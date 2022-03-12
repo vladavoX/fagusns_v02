@@ -4,14 +4,25 @@ export default{
     type: 'document',
     fields:[
         {
-            name:'title',
-            title:'Title',
-            type:'string'
+            title: "Language",
+            type: "string",
+            name: "language",
+            options: {
+                list: [
+                    {title: 'English', value: 'en'},
+                    {title: 'Srpski', value: 'sr'}
+                ]
+            }
         },
         {
-            name:'description',
-            title:'Description',
-            type:'string'
+            title: "Title",
+            type: "string",
+            name: "title",
+        },
+        {
+            title: "Description",
+            type: "string",
+            name: "description",
         },
         {
             name:'imgUrl',
@@ -21,6 +32,5 @@ export default{
               hotspot: true,
             },
         },
-        
     ]
 }

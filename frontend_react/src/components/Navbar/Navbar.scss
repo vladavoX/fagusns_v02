@@ -7,7 +7,7 @@
 
   padding: 1rem 2rem;
 
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
@@ -55,6 +55,53 @@
     margin: 0 1rem;
     cursor: pointer;
     
+    flex-direction: column;
+
+    div {
+      width: 5px;
+      height: 5px;
+      background: transparent;
+      border-radius: 50%;
+
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: var(--gray-color);
+      text-decoration: none;
+      flex-direction: column;
+
+      text-transform: uppercase;
+      font-weight: 500;
+
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: var(--secondary-color)
+      }
+    }
+
+    &:hover {
+      div {
+        background: var(--secondary-color);
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.app__navbar-lang {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    margin: 0 1rem;
+    cursor: pointer;
     flex-direction: column;
 
     div {
