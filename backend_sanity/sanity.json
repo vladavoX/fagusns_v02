@@ -1,11 +1,11 @@
 {
   "root": true,
+  "api": {
+    "projectId": "3xn7ldlo",
+    "dataset": "production"
+  },
   "project": {
     "name": "fagusns"
-  },
-  "api": {
-    "projectId": "6fysjffx",
-    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
