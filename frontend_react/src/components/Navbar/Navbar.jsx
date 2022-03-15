@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { HiMenuAlt4, HiX } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
@@ -14,7 +14,7 @@ const Navbar = () => {
   }
   
   const handleLangSerbian = (e) => {
-    if (localStorage.getItem('lang') == 'sr') {
+    if (localStorage.getItem('lang') === 'sr') {
       e.preventDefault();
     } else {
       localStorage.setItem('lang', 'sr');
@@ -22,7 +22,7 @@ const Navbar = () => {
   }
 
   const handleLangEnglish = (e) => {
-    if (localStorage.getItem('lang') == 'en') {
+    if (localStorage.getItem('lang') === 'en') {
       e.preventDefault();
     } else {
       localStorage.setItem('lang', 'en');
@@ -53,11 +53,11 @@ const Navbar = () => {
       <ul className='app__navbar-lang'>
         <li className='app__flex p-text'>
           <div />
-          <a href="" onClick={handleLangSerbian}>Srpski</a>
+          <button onClick={handleLangSerbian}>Srpski</button>
         </li>
         <li className='app__flex p-text'>
           <div />
-          <a href="" onClick={handleLangEnglish}>English</a>
+          <button onClick={handleLangEnglish}>English</button>
         </li>
       </ul>
 

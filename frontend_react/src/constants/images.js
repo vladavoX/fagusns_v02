@@ -6,11 +6,13 @@ import oaklog from '../assets/oaklog.png';
 import oakplank from '../assets/oakplank.png';
 import oakproduct from '../assets/oakproduct.png';
 
-export default {
+const images = {
   logo,
   logo_header,
   oaktree,
   oaklog,
   oakplank,
   oakproduct,
-};
+}
+
+export default images;
