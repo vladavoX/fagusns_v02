@@ -6,6 +6,9 @@ import oaklog from '../assets/oaklog.png';
 import oakplank from '../assets/oakplank.png';
 import oakproduct from '../assets/oakproduct.png';
 
+import kitchenone from '../assets/kitchenone.png';
+import kitchentwo from '../assets/kitchentwo.png';
+
 const images = {
   logo,
   logo_header,
@@ -13,6 +16,8 @@ const images = {
   oaklog,
   oakplank,
   oakproduct,
+  kitchenone,
+  kitchentwo
 }
 
 export default images;

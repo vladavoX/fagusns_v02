@@ -12,12 +12,13 @@ const Navbar = () => {
     e.stopPropagation();
     setToggle((prevState) => !prevState);
   }
-  
+
   const handleLangSerbian = (e) => {
     if (localStorage.getItem('lang') === 'sr') {
       e.preventDefault();
     } else {
       localStorage.setItem('lang', 'sr');
+      window.location.reload();
     }
   }
 
@@ -26,6 +27,7 @@ const Navbar = () => {
       e.preventDefault();
     } else {
       localStorage.setItem('lang', 'en');
+      window.location.reload();
     }
   }
 

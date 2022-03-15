@@ -6,17 +6,15 @@ import './About.scss';
 import { urlFor, client } from '../../client';
 
 const About = () => {
-  var lang = localStorage.getItem('lang');
-
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
-    const query = `*[_type == "abouts" && language == "${lang}" ]`;
+    const query = `*[_type == "abouts" && language == "${localStorage.getItem('lang')}" ]`;
 
     client.fetch(query).then((data) => {
       setAbouts(data);
     });
-  }, [lang]);
+  }, []);
 
   return (
     <>

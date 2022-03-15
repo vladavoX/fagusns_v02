@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AiFillEye } from 'react-icons/ai';
+import { HiX, HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -11,9 +12,21 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [modal, setModal] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleOnClick = (index) => {
+    setCurrentIndex(index);
+    console.log(index);
+  }
+
+  const openModal = (e) => {
+    e.stopPropagation();
+    setModal((prevState) => !prevState);
+  }
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query = `*[_type == "works" && language == "${localStorage.getItem('lang')}"]`;
 
     client.fetch(query).then((data) => {
       setWorks(data);
@@ -68,6 +81,7 @@ const Work = () => {
                 whileHover={{ opacity: [0, 1] }}
                 transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
                 className="app__work-hover app__flex"
+                onClick={(e) => openModal(e)}
               >
                 <a href={work.projectLink} target="_blank" rel="noreferrer">
 
@@ -78,9 +92,50 @@ const Work = () => {
                     className="app__flex"
                   >
                     <AiFillEye />
+                    
                   </motion.div>
                 </a>
               </motion.div>
+
+              {modal && (
+                <motion.div
+                  initial={{ width: 0, height: 0 }}
+                  animate={{ width: 1200, height: 600 }}
+                  transition={{ duration: 0.85, ease: 'easeOut' }}
+                  className='app__modal'
+                >
+
+                  <motion.div 
+                    className='app__modal-btns app__flex'
+                    whileInView={{ x: [-100, 0 ], opacity: [0, 1] }}
+                    transition={{ delay: 0.5, duration: 0.5, ease: 'easeInOut' }}
+                  >
+                    <div className='app__flex' onClick={() => handleOnClick(currentIndex === 0 ? currentIndex + 1 : currentIndex - 1)}>
+                      <HiChevronLeft />
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className='app__modal-image app__flex'
+                    whileInView={{ x: [-100, 1], opacity: [0, 1] }}
+                    transition={{ delay: 0.5, duration: 0.5, ease: 'easeInOut' }}
+                  >
+                    <img src={urlFor(work.showcase[currentIndex])} alt="kitchen" />
+                  </motion.div>
+
+                  <motion.div 
+                    className='app__modal-btns app__flex'
+                    whileInView={{ x: [-100, 0 ], opacity: [0, 1] }}
+                    transition={{ delay: 0.5, duration: 0.5, ease: 'easeInOut' }}
+                  >
+                    <div className='app__flex' onClick={() => handleOnClick(currentIndex === 0 ? currentIndex + 1 : currentIndex - 1)}>
+                      <HiChevronRight />
+                    </div>
+                  </motion.div>
+
+                  <HiX className='app__modal-btnclose' onClick={() => setModal(false)} />                    
+                </motion.div>
+              )}
             </div>
 
             <div className="app__work-content app__flex">
