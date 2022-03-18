@@ -8,6 +8,9 @@ import oakproduct from '../assets/oakproduct.png';
 
 import kitchenone from '../assets/kitchenone.png';
 import kitchentwo from '../assets/kitchentwo.png';
+import blumaventosone from '../assets/blumaventosone.png';
+import blumaventostwo from '../assets/blumaventostwo.png';
+import blumaventosthree from '../assets/blumaventosthree.png';
 
 const images = {
   logo,
@@ -17,7 +20,10 @@ const images = {
   oakplank,
   oakproduct,
   kitchenone,
-  kitchentwo
+  kitchentwo,
+  blumaventosone,
+  blumaventostwo,
+  blumaventosthree
 }
 
 export default images;

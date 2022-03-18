@@ -156,14 +156,20 @@
 }
 
 .app__modal {
+  width: 70%;
+  height: 600px;
   position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--white-color);
   z-index: 4;
   cursor: initial;
   box-shadow: 0 0 32px 0 rgba(255, 255, 255, 0.37);
   border-radius: 12px;
   color: black;
-  display: flex;
+  display: none;
   align-items: center;
 }
 
@@ -178,12 +184,90 @@
 }
 
 .app__modal-image {
-  flex: 0.5;
-  width: 500px;
-  height: 500px;
+  flex: 0.4;
 
   img {
     object-fit: cover;
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+  }
+}
+
+.app__modal-desc {
+  flex-direction: column;
+  flex: 0.35;
+  margin: 1rem;
+
+  h3 {
+    color: var(--black-color);
+  }
+  p {
+    color: rgb(116, 116, 116);
+    text-align: justify;
+    font-weight: 500;
+    margin: 1rem 0;
+  }
+}
+
+.app__modal-seeMore {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color 0.5s ease-out 100ms;
+
+  .seeMore-btn {
+    border: none;
+    color: var(--black-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  svg {
+    display: none;
+    width: 30px;
+    height: 40px;
+  }
+
+  &:hover {
+    background-color: var(--secondary-color);
+
+    .seeMore-btn {
+      display: none;
+    }
+
+    svg {
+      display: flex;
+    }
+  }
+}
+
+@keyframes buttonHover {
+  0% {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    background-color: var(--secondary-color);
+  }
+}
+
+.app__modal-hinges-list {
+  flex-direction: column;
+  flex: 0.2;
+  margin: 0 1rem;
+}
+
+.app__modal-hinges-item {
+  margin: 0.5rem 0;
+  img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
   }
 }
 

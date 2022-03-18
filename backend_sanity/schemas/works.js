@@ -65,5 +65,20 @@ export default {
         { type: 'image' }
       ]
     },
-  ],
+    {
+      name: 'hingeone',
+      title: 'Hinge First',
+      type: 'image',
+    },
+    {
+      name: 'hingetwo',
+      title: 'Hinge Second',
+      type: 'image',
+    },
+    {
+      name: 'hingethree',
+      title: 'Hinge Third',
+      type: 'image',
+    }
+  ]
 };
